@@ -211,6 +211,28 @@
     .project-links a:hover {
       background: var(--accent-dark);
     }
+    .contact-links {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-top: 1rem;
+    }
+    #contact p {
+        text-align: center;
+    }
+
+    .contact-links a {
+        color: var(--accent-dark);
+        font-weight: 600;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .contact-links a:hover {
+    color: var(--accent);
+    }
+
 
     footer {
       text-align: center;
@@ -359,16 +381,16 @@
         </div>
         <div class="project-card">
           <div class="project-title">Student Management System</div>
-          <div class="project-desc">Python, Tkinter & MySQL app to manage student data with CSV export.</div>
+          <div class="project-desc">A Student Management System built using Python, Tkinter, and MySQL. The system allows users to manage student records efficiently through a graphical user interface (GUI). It includes features such as adding, updating, deleting, searching, exporting student data, and changing admission numbers.</div>
           <div class="project-links">
-            <a href="#">GitHub</a>
+            <a href="https://github.com/Kirti757/Python-Projects/tree/main/StudentManagementSystem" target="_blank" >GitHub</a>
           </div>
         </div>
         <div class="project-card">
           <div class="project-title">Login System</div>
-          <div class="project-desc">Secure login app using Python & SQLite with validation features.</div>
+          <div class="project-desc">This is a simple Login System built using Python, Tkinter, and SQLite for user authentication. The system includes a Sign-up and Sign-in page, ensuring secure registration and login functionality with basic password validation.</div>
           <div class="project-links">
-            <a href="#">GitHub</a>
+            <a href="https://github.com/Kirti757/Python-Projects/tree/main/LoginSystem" target="_blank" >GitHub</a>
           </div>
         </div>
       </div>
@@ -376,13 +398,17 @@
   </section>
 
   <section id="contact">
-    <div class="container">
-      <h2>Contact Me</h2>
-      <p>Let’s connect! Reach me via email or LinkedIn and I’ll get back to you.</p>
-      <p><a href="mailto:kirtikaderu@example.com">kirtikaderu@example.com</a></p>
-      <p><a href="https://linkedin.com/in/kirtikaderu" target="_blank">linkedin.com/in/kirtikaderu</a></p>
+  <div class="container">
+    <h2>Contact Me</h2>
+    <p>Let’s connect! Reach me via email or LinkedIn and I’ll get back to you.</p>
+    <div class="contact-links">
+      <a href="mailto:kirtikaderu@example.com">kirtikaderu@example.com</a>
+      <span>|</span>
+      <a href="https://linkedin.com/in/kirtikaderu" target="_blank">linkedin.com/in/kirtikaderu</a>
     </div>
-  </section>
+  </div>
+</section>
+
 </main>
 
 <footer>
