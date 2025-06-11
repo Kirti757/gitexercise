@@ -2,82 +2,57 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>My Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kirti Kaderu | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet"/>
   <style>
     :root {
-      --color-bg: #ffffff;
-      --color-text-primary: #111827;
-      --color-text-secondary: #6b7280;
-      --color-accent: #111827;
-      --color-accent-hover: #374151;
-      --color-card-bg: #f9fafb;
+      --bg-gradient: linear-gradient(135deg, #e0e7ff, #f3f4f6);
+      --text: #1f2937;
+      --muted: #4b5563;
+      --accent: #6366f1;
+      --accent-dark: #4f46e5;
+      --card-bg: #ffffff;
+      --sect-bg: #ffffffcc;
       --radius: 0.75rem;
       --transition: 0.3s ease;
-      --max-width: 1200px;
+      --max-width: 1000px;
     }
 
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      margin: 0;
-      background: var(--color-bg);
-      color: var(--color-text-secondary);
       font-family: 'Poppins', sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text);
       line-height: 1.6;
-      font-size: 18px;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+      scroll-behavior: smooth;
     }
 
-    a {
-      color: var(--color-accent);
-      text-decoration: none;
-      transition: color var(--transition);
-    }
-
-    a:hover,
-    a:focus {
-      color: var(--color-accent-hover);
-      outline: none;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      background: var(--color-bg);
-      border-bottom: 1px solid #e5e7eb;
-      z-index: 10;
-      box-shadow: 0 2px 8px rgb(0 0 0 / 0.05);
-    }
     .container {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 0 1rem;
-      width: 100%;
+      padding: 1.5rem;
+    }
+
+    header {
+      background: var(--sect-bg);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 4.25rem;
+      padding: 1rem 0;
     }
 
     .logo {
+      font-size: 1.8rem;
       font-weight: 800;
-      font-size: 1.5rem;
-      color: var(--color-accent);
-      user-select: none;
-      letter-spacing: 0.03em;
+      color: black;
     }
 
     .nav-links {
@@ -86,251 +61,182 @@
     }
 
     .nav-links a {
+      color: var(--text);
       font-weight: 600;
-      font-size: 1rem;
-      padding: 0.25rem 0.5rem;
-      border-radius: 0.5rem;
-      transition: background-color var(--transition), color var(--transition);
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: background var(--transition), color var(--transition);
+      cursor: pointer;
+    }
+    .nav-links a:hover {
+      background: var(--accent);
+      color: #fff;
     }
 
-    .nav-links a:hover,
-    .nav-links a:focus {
-      background-color: var(--color-accent);
-      color: white;
-      outline: none;
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+    .nav-toggle span {
+      width: 25px;
+      height: 3px;
+      background: var(--text);
+      border-radius: 999px;
     }
 
-    main {
-      flex-grow: 1;
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 4rem 1rem 6rem;
-      width: 100%;
-    }
-
-    /* Hero Section */
     .hero {
       text-align: center;
-      padding-bottom: 5rem;
+      padding: 5rem 1rem 4rem;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      margin: 2rem 0 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      background: var(--sect-bg);
     }
 
     .hero h1 {
-      font-size: 3.5rem;
-      color: var(--color-text-primary);
-      font-weight: 800;
-      line-height: 1.1;
-      margin: 0 0 1rem;
-      letter-spacing: -0.02em;
+      font-size: 2.8rem;
+      margin-bottom: .75rem;
     }
 
     .hero p {
-      font-size: 1.25rem;
-      max-width: 600px;
-      margin: 0 auto 2.5rem;
-      color: var(--color-text-secondary);
+      max-width: 700px;
+      margin: 0 auto 1.5rem;
+      font-size: 1.125rem;
+      color: var(--muted);
     }
 
     .btn-primary {
-      background-color: var(--color-accent);
-      color: white;
-      font-weight: 700;
-      font-size: 1.125rem;
-      padding: 0.75rem 2.25rem;
+      background: rgb(40, 40, 40);
+      color: #fff;
+      padding: .75rem 2rem;
       border: none;
-      border-radius: 0.75rem;
+      border-radius: var(--radius);
+      font-size: 1rem;
+      font-weight: 600;
       cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-      user-select: none;
-      box-shadow: 0 6px 12px rgb(17 24 39 / 0.12);
+      transition: background var(--transition), transform var(--transition);
     }
 
-    .btn-primary:hover,
-    .btn-primary:focus {
-      background-color: var(--color-accent-hover);
+    .btn-primary:hover {
+      background: rgb(114, 113, 113);
       transform: scale(1.05);
-      outline: none;
     }
 
-    /* Section Titles */
+    section {
+      display: none;
+      margin: 2rem 0 0;
+      background: var(--sect-bg);
+      padding: 3rem 1rem;
+      border-radius: var(--radius);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+
+    section.active {
+      display: block;
+    }
+
     section h2 {
-      font-size: 2.25rem;
-      font-weight: 700;
-      color: var(--color-text-primary);
-      margin-bottom: 2rem;
+      font-size: 2rem;
       text-align: center;
+      margin-bottom: 1.5rem;
     }
 
-    /* About Section */
-    .about {
-      max-width: 720px;
-      margin: 0 auto 5rem;
-      color: var(--color-text-secondary);
-      font-size: 1.125rem;
-      line-height: 1.75;
+    .about p, .contact p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: var(--muted);
+      line-height: 1.8;
     }
 
-    /* Skills Section */
-    .skills {
+    .skills, .projects {
       display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(140px,1fr));
-      gap: 1.75rem;
-      margin-bottom: 5rem;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    }
+
+    .skill-card, .project-card {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .skill-card:hover, .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
     }
 
     .skill-card {
-      background: var(--color-card-bg);
-      border-radius: var(--radius);
-      padding: 1rem 1.5rem;
-      box-shadow: 0 1px 4px rgb(0 0 0 / 0.06);
       text-align: center;
       font-weight: 600;
-      font-size: 1rem;
-      color: var(--color-text-primary);
-      user-select: none;
-      transition: box-shadow 0.3s ease, transform 0.2s ease;
-    }
-    .skill-card:hover,
-    .skill-card:focus-within {
-      box-shadow: 0 6px 16px rgb(0 0 0 / 0.12);
-      transform: translateY(-4px);
-      outline: none;
+      color: var(--accent-dark);
     }
 
-    /* Projects Section */
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
-      gap: 2rem;
-      max-width: 1000px;
-      margin-left: auto;
-      margin-right: auto;
-      margin-bottom: 5rem;
-    }
-
-    .project-card {
-      background: var(--color-card-bg);
-      border-radius: var(--radius);
-      box-shadow: 0 2px 8px rgb(0 0 0 / 0.07);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 1.5rem;
-      transition: box-shadow var(--transition), transform var(--transition);
-      cursor: pointer;
-    }
-    .project-card:hover,
-    .project-card:focus-within {
-      box-shadow: 0 10px 24px rgb(0 0 0 / 0.15);
-      transform: translateY(-8px);
-      outline: none;
-    }
     .project-title {
-      font-weight: 700;
       font-size: 1.25rem;
-      margin-bottom: 0.5rem;
-      color: var(--color-text-primary);
+      font-weight: 700;
+      margin-bottom: .5rem;
+      color: var(--accent-dark);
     }
+
     .project-desc {
-      font-size: 1rem;
-      color: var(--color-text-secondary);
-      flex-grow: 1;
+      color: var(--muted);
+      font-size: .95rem;
       margin-bottom: 1rem;
     }
+
     .project-links {
-      margin-top: auto;
       display: flex;
-      gap: 1rem;
-    }
-    .project-links a {
-      background-color: var(--color-accent);
-      color: white;
-      padding: 0.5rem 1rem;
-      font-size: 0.9rem;
-      border-radius: 0.5rem;
-      font-weight: 600;
-      user-select: none;
-      transition: background-color 0.3s ease;
-    }
-    .project-links a:hover,
-    .project-links a:focus {
-      background-color: var(--color-accent-hover);
-      outline: none;
-    }
-
-    /* Contact Section */
-    .contact {
-      max-width: 560px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .contact p {
-      margin-bottom: 1.5rem;
-      font-size: 1.125rem;
-      color: var(--color-text-secondary);
-    }
-    .contact a {
-      font-weight: 700;
-      color: var(--color-accent);
-      word-break: break-all;
-      transition: color var(--transition);
-    }
-    .contact a:hover,
-    .contact a:focus {
-      color: var(--color-accent-hover);
-      outline: none;
-    }
-
-    /* Responsive Nav Toggle */
-    .nav-toggle {
-      background: none;
-      border: none;
-      cursor: pointer;
-      display: none;
-      flex-direction: column;
+      align-items: center;
       justify-content: center;
-      gap: 5px;
-      width: 28px;
-      height: 22px;
-      padding: 0;
+      gap: .75rem;
     }
-    .nav-toggle span {
-      display: block;
-      height: 3px;
-      background-color: var(--color-text-primary);
-      border-radius: 100vmax;
-      transition: transform 0.3s ease, opacity 0.3s ease;
+
+    .project-links a {
+      padding: .5rem 1rem;
+      background: var(--accent);
+      color: #fff;
+      border-radius: var(--radius);
+      font-weight: 600;
+      transition: background var(--transition);
+      text-decoration: none;
     }
-    .nav-toggle[aria-expanded="true"] span:nth-child(1) {
-      transform: translateY(9px) rotate(45deg);
+
+    .project-links a:hover {
+      background: var(--accent-dark);
     }
-    .nav-toggle[aria-expanded="true"] span:nth-child(2) {
-      opacity: 0;
-    }
-    .nav-toggle[aria-expanded="true"] span:nth-child(3) {
-      transform: translateY(-9px) rotate(-45deg);
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: var(--muted);
+      font-size: .9rem;
     }
 
     @media (max-width: 768px) {
       .nav-links {
-        position: absolute;
-        top: 4.25rem;
-        right: 0;
-        background: var(--color-bg);
+        display: none;
         flex-direction: column;
-        width: 180px;
-        padding: 1rem 1.5rem;
-        box-shadow: 0 6px 16px rgb(0 0 0 / 0.1);
-        border-radius: 0 0 var(--radius) var(--radius);
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.4s ease;
+        background: var(--card-bg);
+        position: absolute;
+        top: 70px;
+        right: 1.5rem;
+        padding: 1rem;
+        gap: 1rem;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        border-radius: var(--radius);
       }
-      .nav-links.open {
-        max-height: 400px;
+
+      .nav-links.active {
+        display: flex;
       }
+
       .nav-toggle {
         display: flex;
       }
@@ -338,103 +244,164 @@
   </style>
 </head>
 <body>
-  <header role="banner">
+
+<header>
+  <div class="container">
+    <nav>
+      <div class="logo">MyPortfolio</div>
+      <div class="nav-toggle" onclick="toggleNav()">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="nav-links" id="nav-links">
+        <a onclick="showSection('home')">Home</a>
+        <a onclick="showSection('about')">About</a>
+        <a onclick="showSection('projects')">Projects</a>
+        <a onclick="showSection('contact')">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero active" id="home">
     <div class="container">
-      <nav role="navigation" aria-label="Main navigation">
-        <a href="#" class="logo" aria-label="Homepage">MyPortfolio</a>
-        <button class="nav-toggle" aria-expanded="false" aria-controls="primary-navigation" aria-label="Menu toggle">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <div class="nav-links" id="primary-navigation">
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </nav>
+      <h1>Hi, I'm Kirti Kaderu</h1>
+      <p>Motivated MCA student passionate about Data Analytics & Tech. Skilled in Python, SQL, Excel, Power BI, with strong database experience. Eager to build solutions and keep growing.</p>
+      <a href="https://drive.google.com/drive/u/3/folders/15IK6v2bJXI1TDpARzp9gp2L_C9Rqlj9e" target="_blank">
+          <button class="btn-primary">My Resume</button>
+      </a>
+
     </div>
-  </header>
+  </section>
 
-  <main role="main">
-    <section class="hero" aria-labelledby="hero-title">
-      <h1 id="hero-title">Hi, I'm Kirti Kaderu</h1>
-      <p>I'm a passionate frontend developer crafting modern, responsive web experiences.</p>
-      <a href="#projects" class="btn-primary" role="button">Browse Projects</a>
-    </section>
+  <section id="about">
+    <div class="container">
+      <h2>About Me</h2>
+      <p>Motivated MCA student with a passion for Data Analytics and Technology. Skilled in 
+        Python and SQL, with a strong understanding of Joins, Subqueries, Stored 
+        Procedures, and database management concepts. Familiar with data manipulation, 
+        data analysis, and dashboard creation using tools like Excel and Power BI. 
+        Enthusiastic about continuous learning, problem-solving, and applying emerging 
+        technologies to real-world projects. </p>
+    </div>
 
-    <section id="about" aria-labelledby="about-title" style="padding-top:4rem; padding-bottom:5rem;">
-      <h2 id="about-title">About Me</h2>
-      <p class="about">
-        I build clean, elegant web applications with a focus on user experience and performance. With 5+ years of experience, I specialize in JavaScript frameworks, responsive layouts, and modern CSS techniques.
-      </p>
-    </section>
-
-    <section id="skills" aria-labelledby="skills-title" style="padding-top:4rem; padding-bottom:5rem;">
-      <h2 id="skills-title">Skills</h2>
-      <div class="skills" role="list">
-        <div class="skill-card" role="listitem" tabindex="0">JavaScript (ES6+)</div>
-        <div class="skill-card" role="listitem" tabindex="0">React & Redux</div>
-        <div class="skill-card" role="listitem" tabindex="0">TypeScript</div>
-        <div class="skill-card" role="listitem" tabindex="0">CSS3 & TailwindCSS</div>
-        <div class="skill-card" role="listitem" tabindex="0">Node.js & Express</div>
-        <div class="skill-card" role="listitem" tabindex="0">Git & GitHub</div>
-        <div class="skill-card" role="listitem" tabindex="0">RESTful APIs</div>
-        <div class="skill-card" role="listitem" tabindex="0">Testing (Jest, Cypress)</div>
+    <div class="container">
+      <h2>Skills</h2>
+      <div class="skills">
+        <div class="skill-card">Python</div>
+        <div class="skill-card">SQL</div>
+        <div class="skill-card">Django</div>
+        <div class="skill-card">Power BI</div>
+        <div class="skill-card">Excel</div>
+        <div class="skill-card">Git & GitHub</div>
+        <div class="skill-card">HTML</div>
+        <div class="skill-card">CSS</div>
       </div>
-    </section>
 
-    <section id="projects" aria-labelledby="projects-title" style="padding-top:4rem; padding-bottom:5rem;">
-      <h2 id="projects-title">Projects</h2>
+      <div class="container">
+      <h2>Certifications</h2>
+      <p> I have attended workshops on Cloud Computing, AI Tools, and Employability Skills, demonstrating my commitment to continuous learning and professional development</p>
+      <div class="certifications">
+        <div class="skill-card">
+            <ul>
+                <li>Introduction to SQL – Simplilearn </li>
+            </ul>
+        </div>
+        <div class="skill-card">
+            <ul>
+                <li>Cloud Computing Workshop - YHills</li>
+            </ul>
+        </div>
+        <div class="skill-card">
+            <ul>
+                <li>ChatGPT & AI Tools Workshop - be10X</li>
+            </ul>
+        </div>
+        </div>
+        <div class="skill-card">
+            <ul>
+                <li>Employability Skills - Naandi Foundation</li>
+            </ul>
+        </div>
+        
+      </div>
+
+      <div class="container">
+      <h2>Awards</h2>
+      <div class="Awards">
+        <div class="skill-card">
+            <ul>
+                <li>State Level School Handball Tournament</li>
+            </ul>
+        </div>
+      </div>
+      
+      <p><br><br>Beyond coding, I enjoy working on innovative ideas, learning about AI tools, and playing sports. My experience in state-level handball has taught me teamwork and discipline, which I bring into my work as well.</p>
+    </div>
+
+     
+
+  </section>
+
+  
+
+  <section id="projects">
+    <div class="container">
+      <h2>Projects</h2>
       <div class="projects">
-        <article class="project-card" tabindex="0">
-          <h3 class="project-title">Portfolio Website</h3>
-          <p class="project-desc">A modern responsive portfolio to showcase projects and skills built with React and TailwindCSS.</p>
+        <div class="project-card">
+          <div class="project-title">Portfolio Website</div>
+          <div class="project-desc">A sleek, responsive portfolio built with HTML, CSS & JS to showcase my work.</div>
           <div class="project-links">
-            <a href="https://github.com/janedoe/portfolio" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository for Portfolio Website">GitHub</a>
-            <a href="https://janedoe.dev" target="_blank" rel="noopener noreferrer" aria-label="Live demo of Portfolio Website">Live Demo</a>
+            <a href="#">GitHub</a>
+            <a href="#">Live</a>
           </div>
-        </article>
-
-        <article class="project-card" tabindex="0">
-          <h3 class="project-title">Task Manager App</h3>
-          <p class="project-desc">A full-stack task management app with user authentication and real-time updates using Node.js and Socket.IO.</p>
+        </div>
+        <div class="project-card">
+          <div class="project-title">Student Management System</div>
+          <div class="project-desc">Python, Tkinter & MySQL app to manage student data with CSV export.</div>
           <div class="project-links">
-            <a href="https://github.com/janedoe/task-manager" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository for Task Manager App">GitHub</a>
+            <a href="#">GitHub</a>
           </div>
-        </article>
-
-        <article class="project-card" tabindex="0">
-          <h3 class="project-title">E-commerce UI Kit</h3>
-          <p class="project-desc">A reusable UI component library for e-commerce sites, built with React and styled-components.</p>
+        </div>
+        <div class="project-card">
+          <div class="project-title">Login System</div>
+          <div class="project-desc">Secure login app using Python & SQLite with validation features.</div>
           <div class="project-links">
-            <a href="https://github.com/janedoe/ecommerce-ui-kit" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository for E-commerce UI Kit">GitHub</a>
+            <a href="#">GitHub</a>
           </div>
-        </article>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="contact" aria-labelledby="contact-title" style="padding-top:4rem; padding-bottom:6rem;">
-      <h2 id="contact-title">Get in Touch</h2>
-      <div class="contact">
-        <p>If you'd like to work with me or just say hi, send me an email or connect on LinkedIn.</p>
-        <p><a href="mailto:jane.doe@example.com">kirtikaderu@example.com</a></p>
-        <p><a href="https://linkedin.com/in/kirtikaderu" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">linkedin.com/in/kirtikaderu</a></p>
-      </div>
-    </section>
-  </main>
+  <section id="contact">
+    <div class="container">
+      <h2>Contact Me</h2>
+      <p>Let’s connect! Reach me via email or LinkedIn and I’ll get back to you.</p>
+      <p><a href="mailto:kirtikaderu@example.com">kirtikaderu@example.com</a></p>
+      <p><a href="https://linkedin.com/in/kirtikaderu" target="_blank">linkedin.com/in/kirtikaderu</a></p>
+    </div>
+  </section>
+</main>
 
-  <script>
-    const navToggle = document.querySelector('.nav-toggle');
-    const navLinks = document.querySelector('.nav-links');
+<footer>
+  &copy; 2025 Kirti Kaderu
+</footer>
 
-    navToggle.addEventListener('click', () => {
-      const expanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
-      navToggle.setAttribute('aria-expanded', !expanded);
-      navLinks.classList.toggle('open');
+<script>
+  function toggleNav() {
+    document.getElementById('nav-links').classList.toggle('active');
+  }
+
+  function showSection(id) {
+    const sections = document.querySelectorAll('main > section');
+    sections.forEach(section => {
+      section.classList.remove('active');
     });
-  </script>
+    document.getElementById(id).classList.add('active');
+  }
+</script>
+
 </body>
 </html>
-
